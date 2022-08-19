@@ -5,6 +5,9 @@
  */
 package examen1p2_felipegarcia;
 
+import java.awt.Color;
+import java.util.ArrayList;
+
 /**
  *
  * @author felip
@@ -27,22 +30,99 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Juego = new javax.swing.JFrame();
         BG = new javax.swing.JPanel();
+        Log_txt = new javax.swing.JLabel();
+        Log_logo = new javax.swing.JLabel();
+        Log_Usrtxt = new javax.swing.JLabel();
+        Log_Passtxt = new javax.swing.JLabel();
+        Log_Usrinsert = new javax.swing.JTextField();
+        Log_Pssinsert = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
+        Log_In = new javax.swing.JButton();
+        Log_BG = new javax.swing.JLabel();
+
+        Juego.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        Juego.setTitle("APEX LEGENDS");
+        Juego.setPreferredSize(new java.awt.Dimension(600, 555));
+        Juego.setResizable(false);
+
+        javax.swing.GroupLayout JuegoLayout = new javax.swing.GroupLayout(Juego.getContentPane());
+        Juego.getContentPane().setLayout(JuegoLayout);
+        JuegoLayout.setHorizontalGroup(
+            JuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
+        );
+        JuegoLayout.setVerticalGroup(
+            JuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 555, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("APEX LEGENDS");
+        setLocationByPlatform(true);
+        setResizable(false);
 
         BG.setBackground(new java.awt.Color(255, 255, 255));
+        BG.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout BGLayout = new javax.swing.GroupLayout(BG);
-        BG.setLayout(BGLayout);
-        BGLayout.setHorizontalGroup(
-            BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
-        );
-        BGLayout.setVerticalGroup(
-            BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
-        );
+        Log_txt.setBackground(new java.awt.Color(0, 0, 0));
+        Log_txt.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        Log_txt.setForeground(new java.awt.Color(0, 0, 0));
+        Log_txt.setText("LOGIN");
+        BG.add(Log_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, -1, -1));
+
+        Log_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/apex-logo-F74B0C9FCD-seeklogo.com.png"))); // NOI18N
+        BG.add(Log_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 310, 250));
+
+        Log_Usrtxt.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        Log_Usrtxt.setForeground(new java.awt.Color(0, 0, 0));
+        Log_Usrtxt.setText("NOMBRE DE USUARIO: ");
+        BG.add(Log_Usrtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, -1));
+
+        Log_Passtxt.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        Log_Passtxt.setForeground(new java.awt.Color(0, 0, 0));
+        Log_Passtxt.setText("CONTRASEÑA              :");
+        BG.add(Log_Passtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 250, -1));
+
+        Log_Usrinsert.setBackground(new java.awt.Color(153, 0, 0));
+        Log_Usrinsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Log_UsrinsertActionPerformed(evt);
+            }
+        });
+        BG.add(Log_Usrinsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, 310, 30));
+
+        Log_Pssinsert.setBackground(new java.awt.Color(153, 0, 0));
+        BG.add(Log_Pssinsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, 310, 30));
+
+        jButton1.setBackground(new java.awt.Color(204, 102, 0));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("CREAR USUARIO");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BG.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 500, -1, 50));
+
+        Log_In.setBackground(new java.awt.Color(204, 102, 0));
+        Log_In.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Log_In.setForeground(new java.awt.Color(0, 0, 0));
+        Log_In.setText("INICIAR SESION");
+        Log_In.setActionCommand("INICIAR SESION");
+        Log_In.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Log_In.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Log_InMouseClicked(evt);
+            }
+        });
+        Log_In.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Log_InActionPerformed(evt);
+            }
+        });
+        BG.add(Log_In, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 220, 50));
+
+        Log_BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/D8ZLsIuUYAA2on9.jpg"))); // NOI18N
+        BG.add(Log_BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 560));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -52,11 +132,28 @@ public class Login extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(BG, javax.swing.GroupLayout.PREFERRED_SIZE, 555, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Log_UsrinsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Log_UsrinsertActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Log_UsrinsertActionPerformed
+
+    private void Log_InActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Log_InActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Log_InActionPerformed
+
+    private void Log_InMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Log_InMouseClicked
+        Juego.pack();
+        Juego.setLocationRelativeTo(this);
+        Juego.setAlwaysOnTop(true);
+        Juego.setVisible(true);
+    }//GEN-LAST:event_Log_InMouseClicked
 
     /**
      * @param args the command line arguments
@@ -93,7 +190,19 @@ public class Login extends javax.swing.JFrame {
         });
     }
 
+    ArrayList<Jugador> Players = new ArrayList();
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
+    private javax.swing.JFrame Juego;
+    private javax.swing.JLabel Log_BG;
+    private javax.swing.JButton Log_In;
+    private javax.swing.JLabel Log_Passtxt;
+    private javax.swing.JPasswordField Log_Pssinsert;
+    private javax.swing.JTextField Log_Usrinsert;
+    private javax.swing.JLabel Log_Usrtxt;
+    private javax.swing.JLabel Log_logo;
+    private javax.swing.JLabel Log_txt;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
