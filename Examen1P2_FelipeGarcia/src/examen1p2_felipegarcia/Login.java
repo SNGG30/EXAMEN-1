@@ -66,6 +66,12 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         Juego = new javax.swing.JFrame();
+        BG2 = new javax.swing.JPanel();
+        J_Opciones = new javax.swing.JTabbedPane();
+        J_Selec = new javax.swing.JLabel();
+        J_Play = new javax.swing.JLabel();
+        J_Make = new javax.swing.JLabel();
+        J_BG = new javax.swing.JLabel();
         BG = new javax.swing.JPanel();
         Log_txt = new javax.swing.JLabel();
         Log_logo = new javax.swing.JLabel();
@@ -79,18 +85,40 @@ public class Login extends javax.swing.JFrame {
 
         Juego.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         Juego.setTitle("APEX LEGENDS");
-        Juego.setPreferredSize(new java.awt.Dimension(620, 600));
+        Juego.setPreferredSize(new java.awt.Dimension(610, 600));
         Juego.setResizable(false);
+
+        BG2.setBackground(new java.awt.Color(255, 255, 255));
+        BG2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        J_Opciones.setToolTipText("");
+        J_Opciones.setName(""); // NOI18N
+
+        J_Selec.setText("jLabel1");
+        J_Opciones.addTab("Seleccionar", J_Selec);
+
+        J_Play.setText("jLabel2");
+        J_Opciones.addTab("Jugar", J_Play);
+
+        J_Make.setText("jLabel3");
+        J_Opciones.addTab("Crear Personaje | Crear Arma", J_Make);
+
+        BG2.add(J_Opciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
+        J_Opciones.getAccessibleContext().setAccessibleName("Crear Personaje");
+
+        J_BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/D8ZLsIuUYAA2on9.jpg"))); // NOI18N
+        BG2.add(J_BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -90, 650, 780));
+        J_BG.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout JuegoLayout = new javax.swing.GroupLayout(Juego.getContentPane());
         Juego.getContentPane().setLayout(JuegoLayout);
         JuegoLayout.setHorizontalGroup(
             JuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addComponent(BG2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         JuegoLayout.setVerticalGroup(
             JuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 555, Short.MAX_VALUE)
+            .addComponent(BG2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -283,6 +311,12 @@ public class Login extends javax.swing.JFrame {
     ArrayList<String> letras = new ArrayList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
+    private javax.swing.JPanel BG2;
+    private javax.swing.JLabel J_BG;
+    private javax.swing.JLabel J_Make;
+    private javax.swing.JTabbedPane J_Opciones;
+    private javax.swing.JLabel J_Play;
+    private javax.swing.JLabel J_Selec;
     private javax.swing.JFrame Juego;
     private javax.swing.JLabel Log_BG;
     private javax.swing.JButton Log_Cre;
