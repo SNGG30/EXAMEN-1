@@ -13,6 +13,44 @@ public class Jugador {
     private String Username;
     private int ID;
     private String Password;
+
+    public Jugador() {
+    }
+
+    public Jugador(String Username, int ID, String Password) {
+        this.Username = Username;
+        this.ID = ID;
+        this.Password = Password;
+    }
+
+    public String getUsername() {
+        return Username;
+    }
+
+    public void setUsername(String Username) {
+        this.Username = Username;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String Password) {
+        this.Password = Password;
+    }
+
+    @Override
+    public String toString() {
+        return "Jugador{" + "Username=" + Username + ", ID=" + ID + ", Password=" + Password + '}';
+    }
     
     
 }

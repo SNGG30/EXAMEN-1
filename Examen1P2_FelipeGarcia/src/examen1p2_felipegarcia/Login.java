@@ -7,18 +7,53 @@ package examen1p2_felipegarcia;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import java.util.Random;
 
 /**
  *
  * @author felip
  */
 public class Login extends javax.swing.JFrame {
+    Random r = new Random();
 
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
+        
+        players.add(new Jugador("Lechuga", 1, "contraseña"));
+        players.add(new Jugador("Loco Bryan", 2, "contraseña"));
+        players.add(new Jugador("Dr. Nuila", 3, "contraseña"));
+        
+        letras.add("a");
+        letras.add("b");
+        letras.add("c");
+        letras.add("d");
+        letras.add("e");
+        letras.add("f");
+        letras.add("j");
+        letras.add("h");
+        letras.add("i");
+        letras.add("j");
+        letras.add("k");
+        letras.add("l");
+        letras.add("m");
+        letras.add("n");
+        letras.add("ñ");
+        letras.add("o");
+        letras.add("p");
+        letras.add("q");
+        letras.add("r");
+        letras.add("s");
+        letras.add("t");
+        letras.add("u");
+        letras.add("v");
+        letras.add("w");
+        letras.add("x");
+        letras.add("y");
+        letras.add("z");
     }
 
     /**
@@ -37,14 +72,14 @@ public class Login extends javax.swing.JFrame {
         Log_Usrtxt = new javax.swing.JLabel();
         Log_Passtxt = new javax.swing.JLabel();
         Log_Usrinsert = new javax.swing.JTextField();
-        Log_Pssinsert = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        Log_Passinsert = new javax.swing.JPasswordField();
         Log_In = new javax.swing.JButton();
+        Log_Cre = new javax.swing.JButton();
         Log_BG = new javax.swing.JLabel();
 
         Juego.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         Juego.setTitle("APEX LEGENDS");
-        Juego.setPreferredSize(new java.awt.Dimension(600, 555));
+        Juego.setPreferredSize(new java.awt.Dimension(620, 600));
         Juego.setResizable(false);
 
         javax.swing.GroupLayout JuegoLayout = new javax.swing.GroupLayout(Juego.getContentPane());
@@ -64,6 +99,7 @@ public class Login extends javax.swing.JFrame {
         setResizable(false);
 
         BG.setBackground(new java.awt.Color(255, 255, 255));
+        BG.setMinimumSize(new java.awt.Dimension(600, 560));
         BG.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Log_txt.setBackground(new java.awt.Color(0, 0, 0));
@@ -93,15 +129,8 @@ public class Login extends javax.swing.JFrame {
         });
         BG.add(Log_Usrinsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, 310, 30));
 
-        Log_Pssinsert.setBackground(new java.awt.Color(153, 0, 0));
-        BG.add(Log_Pssinsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, 310, 30));
-
-        jButton1.setBackground(new java.awt.Color(204, 102, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("CREAR USUARIO");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BG.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 500, -1, 50));
+        Log_Passinsert.setBackground(new java.awt.Color(153, 0, 0));
+        BG.add(Log_Passinsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, 310, 30));
 
         Log_In.setBackground(new java.awt.Color(204, 102, 0));
         Log_In.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -120,6 +149,23 @@ public class Login extends javax.swing.JFrame {
             }
         });
         BG.add(Log_In, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 220, 50));
+
+        Log_Cre.setBackground(new java.awt.Color(204, 102, 0));
+        Log_Cre.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Log_Cre.setForeground(new java.awt.Color(0, 0, 0));
+        Log_Cre.setText("CREAR USUARIO");
+        Log_Cre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Log_Cre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Log_CreMouseClicked(evt);
+            }
+        });
+        Log_Cre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Log_CreActionPerformed(evt);
+            }
+        });
+        BG.add(Log_Cre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 500, -1, 50));
 
         Log_BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/D8ZLsIuUYAA2on9.jpg"))); // NOI18N
         BG.add(Log_BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 560));
@@ -149,11 +195,54 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_Log_InActionPerformed
 
     private void Log_InMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Log_InMouseClicked
+        
+        String Nombre = Log_Usrinsert.getText();
+        String Contraseña = Log_Passinsert.getText();
+        int temp = 0;
+        
+        for (int i = 0; i < players.size(); i++) {
+            if(Nombre.equals(players.get(i).getUsername())){
+                temp = i;
+                i = 1001;
+            }
+        }
+        if(Contraseña.equals(players.get(temp).getPassword())){
+        JOptionPane.showMessageDialog(this, "Sesion iniciada correctamente");
         Juego.pack();
         Juego.setLocationRelativeTo(this);
         Juego.setAlwaysOnTop(true);
         Juego.setVisible(true);
+      }else{
+            JOptionPane.showMessageDialog(this, "Intente denuevo");
+        }
     }//GEN-LAST:event_Log_InMouseClicked
+
+    private void Log_CreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Log_CreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Log_CreActionPerformed
+
+    private void Log_CreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Log_CreMouseClicked
+        // TODO add your handling code here:
+        
+        String Nombre = Log_Usrinsert.getText();
+        int ID;
+        String Contraseña = Log_Passinsert.getText();;
+        
+        if(Nombre.equals("") || Contraseña.equals("")){
+            JOptionPane.showMessageDialog(this, "Por Favor Ingrese datos");
+        }else{
+            ID = 1+r.nextInt(1000);
+            for (int i = 0; i < players.size(); i++) {
+                if(ID == (players.get(i).getID())){
+                    ID = 1+r.nextInt(1000);
+                    i = 0;
+                }
+            }
+             Jugador Ply = new Jugador(Nombre, ID, Contraseña);
+             players.add(Ply);
+             JOptionPane.showMessageDialog(this, "Usuario Creado Correctamente");
+        }
+    }//GEN-LAST:event_Log_CreMouseClicked
 
     /**
      * @param args the command line arguments
@@ -190,19 +279,19 @@ public class Login extends javax.swing.JFrame {
         });
     }
 
-    ArrayList<Jugador> Players = new ArrayList();
-    
+    ArrayList<Jugador> players = new ArrayList();
+    ArrayList<String> letras = new ArrayList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
     private javax.swing.JFrame Juego;
     private javax.swing.JLabel Log_BG;
+    private javax.swing.JButton Log_Cre;
     private javax.swing.JButton Log_In;
+    private javax.swing.JPasswordField Log_Passinsert;
     private javax.swing.JLabel Log_Passtxt;
-    private javax.swing.JPasswordField Log_Pssinsert;
     private javax.swing.JTextField Log_Usrinsert;
     private javax.swing.JLabel Log_Usrtxt;
     private javax.swing.JLabel Log_logo;
     private javax.swing.JLabel Log_txt;
-    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
