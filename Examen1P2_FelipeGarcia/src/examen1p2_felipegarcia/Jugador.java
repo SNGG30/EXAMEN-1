@@ -13,6 +13,7 @@ public class Jugador {
     private String Username;
     private int ID;
     private String Password;
+    private Personajes p;
 
     public Jugador() {
     }
@@ -22,6 +23,15 @@ public class Jugador {
         this.ID = ID;
         this.Password = Password;
     }
+
+    public Jugador(String Username, int ID, String Password, Personajes p) {
+        this.Username = Username;
+        this.ID = ID;
+        this.Password = Password;
+        this.p = p;
+    }
+    
+    
 
     public String getUsername() {
         return Username;

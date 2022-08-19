@@ -27,6 +27,7 @@ public class Login extends javax.swing.JFrame {
         players.add(new Jugador("Loco Bryan", 2, "contraseña"));
         players.add(new Jugador("Dr. Nuila", 3, "contraseña"));
         
+        
         letras.add("a");
         letras.add("b");
         letras.add("c");
@@ -68,9 +69,11 @@ public class Login extends javax.swing.JFrame {
         Juego = new javax.swing.JFrame();
         BG2 = new javax.swing.JPanel();
         J_Opciones = new javax.swing.JTabbedPane();
-        J_Selec = new javax.swing.JLabel();
-        J_Play = new javax.swing.JLabel();
-        J_Make = new javax.swing.JLabel();
+        J_Select = new javax.swing.JPanel();
+        J_Play = new javax.swing.JPanel();
+        J_Make = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         J_BG = new javax.swing.JLabel();
         BG = new javax.swing.JPanel();
         Log_txt = new javax.swing.JLabel();
@@ -94,13 +97,72 @@ public class Login extends javax.swing.JFrame {
         J_Opciones.setToolTipText("");
         J_Opciones.setName(""); // NOI18N
 
-        J_Selec.setText("jLabel1");
-        J_Opciones.addTab("Seleccionar", J_Selec);
+        J_Select.setBackground(new java.awt.Color(51, 51, 51));
+        J_Select.setForeground(new java.awt.Color(255, 255, 255));
+        J_Select.setToolTipText("");
 
-        J_Play.setText("jLabel2");
+        javax.swing.GroupLayout J_SelectLayout = new javax.swing.GroupLayout(J_Select);
+        J_Select.setLayout(J_SelectLayout);
+        J_SelectLayout.setHorizontalGroup(
+            J_SelectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
+        );
+        J_SelectLayout.setVerticalGroup(
+            J_SelectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 567, Short.MAX_VALUE)
+        );
+
+        J_Opciones.addTab("Seleccionar", J_Select);
+
+        J_Play.setBackground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout J_PlayLayout = new javax.swing.GroupLayout(J_Play);
+        J_Play.setLayout(J_PlayLayout);
+        J_PlayLayout.setHorizontalGroup(
+            J_PlayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
+        );
+        J_PlayLayout.setVerticalGroup(
+            J_PlayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 567, Short.MAX_VALUE)
+        );
+
         J_Opciones.addTab("Jugar", J_Play);
 
-        J_Make.setText("jLabel3");
+        J_Make.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Nombre");
+
+        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
+        jTextField1.setText("jTextField1");
+
+        javax.swing.GroupLayout J_MakeLayout = new javax.swing.GroupLayout(J_Make);
+        J_Make.setLayout(J_MakeLayout);
+        J_MakeLayout.setHorizontalGroup(
+            J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(J_MakeLayout.createSequentialGroup()
+                .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(J_MakeLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel1))
+                    .addGroup(J_MakeLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(466, Short.MAX_VALUE))
+        );
+        J_MakeLayout.setVerticalGroup(
+            J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(J_MakeLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(473, Short.MAX_VALUE))
+        );
+
         J_Opciones.addTab("Crear Personaje | Crear Arma", J_Make);
 
         BG2.add(J_Opciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
@@ -309,14 +371,16 @@ public class Login extends javax.swing.JFrame {
 
     ArrayList<Jugador> players = new ArrayList();
     ArrayList<String> letras = new ArrayList();
+    ArrayList<Armas> weapons = new ArrayList();
+    ArrayList<Personajes> characters = new ArrayList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
     private javax.swing.JPanel BG2;
     private javax.swing.JLabel J_BG;
-    private javax.swing.JLabel J_Make;
+    private javax.swing.JPanel J_Make;
     private javax.swing.JTabbedPane J_Opciones;
-    private javax.swing.JLabel J_Play;
-    private javax.swing.JLabel J_Selec;
+    private javax.swing.JPanel J_Play;
+    private javax.swing.JPanel J_Select;
     private javax.swing.JFrame Juego;
     private javax.swing.JLabel Log_BG;
     private javax.swing.JButton Log_Cre;
@@ -327,5 +391,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel Log_Usrtxt;
     private javax.swing.JLabel Log_logo;
     private javax.swing.JLabel Log_txt;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
