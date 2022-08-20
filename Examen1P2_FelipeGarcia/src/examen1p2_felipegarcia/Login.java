@@ -93,6 +93,11 @@ public class Login extends javax.swing.JFrame {
         J_S_TxtS = new javax.swing.JLabel();
         J_S_Selec = new javax.swing.JButton();
         J_Play = new javax.swing.JPanel();
+        J_P_Start = new javax.swing.JButton();
+        J_P_Log = new javax.swing.JScrollPane();
+        J_P_Game = new javax.swing.JTextArea();
+        J_P_Player = new javax.swing.JTextField();
+        J_P_Attack = new javax.swing.JButton();
         J_Make = new javax.swing.JPanel();
         J_M_txtN = new javax.swing.JLabel();
         J_M_Name = new javax.swing.JTextField();
@@ -197,15 +202,61 @@ public class Login extends javax.swing.JFrame {
 
         J_Play.setBackground(new java.awt.Color(51, 51, 51));
 
+        J_P_Start.setBackground(new java.awt.Color(153, 153, 153));
+        J_P_Start.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        J_P_Start.setForeground(new java.awt.Color(255, 0, 0));
+        J_P_Start.setText("COMENZAR");
+        J_P_Start.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                J_P_StartActionPerformed(evt);
+            }
+        });
+
+        J_P_Game.setColumns(20);
+        J_P_Game.setRows(5);
+        J_P_Log.setViewportView(J_P_Game);
+
+        J_P_Attack.setBackground(new java.awt.Color(153, 153, 153));
+        J_P_Attack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        J_P_Attack.setForeground(new java.awt.Color(255, 0, 0));
+        J_P_Attack.setText("ATACAR");
+        J_P_Attack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                J_P_AttackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout J_PlayLayout = new javax.swing.GroupLayout(J_Play);
         J_Play.setLayout(J_PlayLayout);
         J_PlayLayout.setHorizontalGroup(
             J_PlayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(J_PlayLayout.createSequentialGroup()
+                .addGroup(J_PlayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(J_PlayLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(J_P_Start))
+                    .addGroup(J_PlayLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(J_PlayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(J_P_Log, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(J_PlayLayout.createSequentialGroup()
+                                .addComponent(J_P_Player, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(J_P_Attack, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         J_PlayLayout.setVerticalGroup(
             J_PlayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 567, Short.MAX_VALUE)
+            .addGroup(J_PlayLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(J_P_Start, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(J_P_Log, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(J_PlayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(J_P_Player, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(J_P_Attack, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         J_Opciones.addTab("Jugar", J_Play);
@@ -664,6 +715,14 @@ public class Login extends javax.swing.JFrame {
         players.get(3).setP(p);
     }//GEN-LAST:event_J_S_SelecMouseClicked
 
+    private void J_P_StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_J_P_StartActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_J_P_StartActionPerformed
+
+    private void J_P_AttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_J_P_AttackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_J_P_AttackActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -727,6 +786,11 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel J_M_txtV;
     private javax.swing.JPanel J_Make;
     private javax.swing.JTabbedPane J_Opciones;
+    private javax.swing.JButton J_P_Attack;
+    private javax.swing.JTextArea J_P_Game;
+    private javax.swing.JScrollPane J_P_Log;
+    private javax.swing.JTextField J_P_Player;
+    private javax.swing.JButton J_P_Start;
     private javax.swing.JPanel J_Play;
     private javax.swing.JComboBox<String> J_S_Charlist;
     private javax.swing.JButton J_S_Selec;
