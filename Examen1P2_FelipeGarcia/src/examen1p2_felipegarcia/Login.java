@@ -206,12 +206,19 @@ public class Login extends javax.swing.JFrame {
         J_P_Start.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         J_P_Start.setForeground(new java.awt.Color(255, 0, 0));
         J_P_Start.setText("COMENZAR");
+        J_P_Start.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        J_P_Start.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                J_P_StartMouseClicked(evt);
+            }
+        });
         J_P_Start.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 J_P_StartActionPerformed(evt);
             }
         });
 
+        J_P_Game.setEditable(false);
         J_P_Game.setColumns(20);
         J_P_Game.setRows(5);
         J_P_Log.setViewportView(J_P_Game);
@@ -220,6 +227,7 @@ public class Login extends javax.swing.JFrame {
         J_P_Attack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         J_P_Attack.setForeground(new java.awt.Color(255, 0, 0));
         J_P_Attack.setText("ATACAR");
+        J_P_Attack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         J_P_Attack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 J_P_AttackActionPerformed(evt);
@@ -722,6 +730,53 @@ public class Login extends javax.swing.JFrame {
     private void J_P_AttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_J_P_AttackActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_J_P_AttackActionPerformed
+
+    private void J_P_StartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_J_P_StartMouseClicked
+        // TODO add your handling code here:
+        
+        int i = 1;
+        while(i > 59){
+            String name = "";
+            int rndN;
+            String rnd;
+            
+            while(name.length() < 10){
+                rndN = 0+r.nextInt(27);
+                rnd = letras.get(rndN);
+                name += rnd;
+            }
+            
+            int ID = 1+r.nextInt(1000);
+            for (int i2 = 0; i < players.size(); i++) {
+                if(ID == (players.get(i2).getID())){
+                    ID = 1+r.nextInt(1000);
+                    i2 = 0;
+                }
+            }
+                
+            String pass = "";
+            int rndP;
+            String rnd2;
+            
+            while(pass.length() < 10){
+                rndP = 0+r.nextInt(27);
+                rnd2 = letras.get(rndP);
+                name += rnd2;
+            }
+                
+            int perrand = 1+r.nextInt(characters.size() - 1);
+            
+            Personajes p = characters.get(perrand);
+            players.add(new Jugador(name, ID, pass, p));
+            i++;
+        }
+        
+        for (int j = 0; j < players.size(); j++) {
+            J_P_Game.append(players.get(j).toString());
+            System.out.println();
+        }
+        
+    }//GEN-LAST:event_J_P_StartMouseClicked
 
     /**
      * @param args the command line arguments
