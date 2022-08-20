@@ -32,6 +32,9 @@ public class Login extends javax.swing.JFrame {
         weapons.add(new Armas("Carabina", 15, 90));
         weapons.add(new Armas("PeaceFinder", 30, 40));
         
+        characters.add(new Personajes("LifeLine", 100, 50, weapons.get(0), "Medico"));
+        characters.add(new Personajes("Vantage", 100, 50, weapons.get(2), "Rastreador"));
+        characters.add(new Personajes("Gibby", 125, 75, weapons.get(1), "Medico"));
         
         letras.add("a");
         letras.add("b");
@@ -62,14 +65,15 @@ public class Login extends javax.swing.JFrame {
         letras.add("z");
         
         DefaultComboBoxModel modelo = (DefaultComboBoxModel) J_S_Charlist.getModel();
-        modelo.addElement(weapons.get(0));
-        modelo.addElement(weapons.get(1));
-        modelo.addElement(weapons.get(2));
+        modelo.addElement(characters.get(0));
+        modelo.addElement(characters.get(1));
+        modelo.addElement(characters.get(2));
         
         DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) J_M_Wpnlist.getModel();
         modelo2.addElement(weapons.get(0));
         modelo2.addElement(weapons.get(1));
         modelo2.addElement(weapons.get(2));
+        
     }
 
     /**
@@ -135,7 +139,6 @@ public class Login extends javax.swing.JFrame {
         J_Select.setForeground(new java.awt.Color(255, 255, 255));
         J_Select.setToolTipText("");
 
-        J_S_Charlist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         J_S_Charlist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 J_S_CharlistActionPerformed(evt);
@@ -283,6 +286,11 @@ public class Login extends javax.swing.JFrame {
         J_M_CreatC.setForeground(new java.awt.Color(255, 0, 0));
         J_M_CreatC.setText("CREAR PERSONAJE");
         J_M_CreatC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        J_M_CreatC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                J_M_CreatCMouseClicked(evt);
+            }
+        });
         J_M_CreatC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 J_M_CreatCActionPerformed(evt);
@@ -587,6 +595,32 @@ public class Login extends javax.swing.JFrame {
     private void J_M_CreatC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_J_M_CreatC1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_J_M_CreatC1ActionPerformed
+
+    private void J_M_CreatCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_J_M_CreatCMouseClicked
+        // TODO add your handling code here:
+        String Nombre = J_M_Name.getText();
+        String life = J_M_Vida.getText();
+        String shield = J_M_Shield.getText();
+        
+        int Vida  = Integer.parseInt(life);
+        int Escudo = Integer.parseInt(shield);
+        Armas Arma = (Armas)J_M_Wpnlist.getSelectedItem();
+        String Tipo = (String)J_M_Typlist.getSelectedItem();
+        
+        if(Nombre.equals("") || life.equals("") || shield.equals("")){
+            
+        }else{
+            Personajes p = new Personajes(Nombre, Vida, Escudo, Arma, Tipo);
+            characters.add(p);
+            
+            DefaultComboBoxModel modelo = (DefaultComboBoxModel) J_S_Charlist.getModel();
+            modelo.addElement(characters.get(characters.size()-1));
+            
+            J_M_Name.setText("");
+            J_M_Vida.setText("");
+            J_M_Shield.setText("");
+        }
+    }//GEN-LAST:event_J_M_CreatCMouseClicked
 
     /**
      * @param args the command line arguments

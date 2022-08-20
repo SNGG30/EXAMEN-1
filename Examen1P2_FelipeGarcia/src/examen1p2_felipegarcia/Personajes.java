@@ -22,8 +22,7 @@ public class Personajes {
 
     public Personajes(String Nombre, int Vida, int Escudo, Armas arm, String tipo) {
         this.Nombre = Nombre;
-        this.Vida = Vida;
-        this.Escudo = Escudo;
+        this.Vida = Vida + Escudo;
         this.arm = arm;
         this.tipo = tipo;
     }
@@ -71,7 +70,7 @@ public class Personajes {
   
     @Override
     public String toString() {
-        return "Personajes{" + "Nombre=" + Nombre + ", Vida=" + Vida + ", Escudo=" + Escudo + ", arm=" + arm + ", tipo=" + tipo + '}';
+        return "Personajes{" + "Nombre=" + Nombre + ", Vida=" + Vida + ", arm=" + arm + ", tipo=" + tipo + '}';
     }
 
    
