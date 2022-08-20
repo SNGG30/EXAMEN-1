@@ -203,8 +203,32 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="J_M_Dmg" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
                                   <Component id="J_M_txtD" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="J_M_Name" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
+                                          <Component id="J_M_txtN" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="J_M_txtE" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="J_M_Shield" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="J_M_txtE1" min="-2" pref="59" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="J_M_txtV" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="J_M_Vida" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
+                                                  <Component id="J_M_Wpnlist" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="J_M_txtT" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="J_M_Typlist" max="32767" attributes="0"/>
+                                                  <Component id="J_M_CreatC" alignment="0" pref="140" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="J_M_Name2" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
@@ -216,29 +240,10 @@
                                           <Component id="J_M_Preci" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="J_M_Name" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
-                                          <Component id="J_M_txtN" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="J_M_txtE" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="J_M_Shield" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="J_M_Dmg" min="-2" pref="116" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="J_M_txtE1" min="-2" pref="59" max="-2" attributes="0"/>
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="J_M_txtV" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="J_M_Vida" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="J_M_txtT" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="J_M_Typlist" min="-2" pref="140" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Component id="jComboBox1" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="J_M_CreatC1" min="-2" pref="125" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace pref="82" max="32767" attributes="0"/>
@@ -275,7 +280,8 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="J_M_Shield" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="J_M_Wpnlist" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="J_M_CreatC" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
@@ -293,8 +299,11 @@
                               <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                               <Component id="J_M_txtD" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="J_M_Dmg" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="104" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="J_M_Dmg" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="J_M_CreatC1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -359,11 +368,10 @@
                     <Component class="javax.swing.JComboBox" name="J_M_Typlist">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
+                          <StringArray count="3">
+                            <StringItem index="0" value="Medico"/>
+                            <StringItem index="1" value="Rastreador"/>
+                            <StringItem index="2" value="Fortaleza"/>
                           </StringArray>
                         </Property>
                       </Properties>
@@ -409,17 +417,15 @@
                         <Property name="text" type="java.lang.String" value="Arma"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox1">
+                    <Component class="javax.swing.JComboBox" name="J_M_Wpnlist">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="J_M_WpnlistActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
@@ -491,6 +497,40 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="J_M_DmgActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="J_M_CreatC">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="12" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="0" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="CREAR PERSONAJE"/>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Hand Cursor"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="J_M_CreatCActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="J_M_CreatC1">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="12" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="0" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="CREAR ARMA"/>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Hand Cursor"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="J_M_CreatC1ActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>

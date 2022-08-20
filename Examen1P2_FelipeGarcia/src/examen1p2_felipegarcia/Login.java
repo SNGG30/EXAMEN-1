@@ -24,10 +24,13 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         
-        DefaultComboBoxModel modelo = (DefaultComboBoxModel) J_S_Charlist.getModel();
         players.add(new Jugador("Lechuga", 1, "contraseña"));
         players.add(new Jugador("Loco Bryan", 2, "contraseña"));
         players.add(new Jugador("Dr. Nuila", 3, "contraseña"));
+        
+        weapons.add(new Armas("FlatLine", 10, 80));
+        weapons.add(new Armas("Carabina", 15, 90));
+        weapons.add(new Armas("PeaceFinder", 30, 40));
         
         
         letras.add("a");
@@ -57,6 +60,16 @@ public class Login extends javax.swing.JFrame {
         letras.add("x");
         letras.add("y");
         letras.add("z");
+        
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) J_S_Charlist.getModel();
+        modelo.addElement(weapons.get(0));
+        modelo.addElement(weapons.get(1));
+        modelo.addElement(weapons.get(2));
+        
+        DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) J_M_Wpnlist.getModel();
+        modelo2.addElement(weapons.get(0));
+        modelo2.addElement(weapons.get(1));
+        modelo2.addElement(weapons.get(2));
     }
 
     /**
@@ -86,13 +99,15 @@ public class Login extends javax.swing.JFrame {
         J_M_txtE = new javax.swing.JLabel();
         J_M_Shield = new javax.swing.JTextField();
         J_M_txtE1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        J_M_Wpnlist = new javax.swing.JComboBox<>();
         J_M_txtN2 = new javax.swing.JLabel();
         J_M_Name2 = new javax.swing.JTextField();
         J_M_txtP = new javax.swing.JLabel();
         J_M_Preci = new javax.swing.JTextField();
         J_M_txtD = new javax.swing.JLabel();
         J_M_Dmg = new javax.swing.JTextField();
+        J_M_CreatC = new javax.swing.JButton();
+        J_M_CreatC1 = new javax.swing.JButton();
         J_BG = new javax.swing.JLabel();
         BG = new javax.swing.JPanel();
         Log_txt = new javax.swing.JLabel();
@@ -208,7 +223,7 @@ public class Login extends javax.swing.JFrame {
         J_M_txtT.setForeground(new java.awt.Color(255, 255, 255));
         J_M_txtT.setText("Tipo");
 
-        J_M_Typlist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        J_M_Typlist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Medico", "Rastreador", "Fortaleza" }));
         J_M_Typlist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 J_M_TyplistActionPerformed(evt);
@@ -227,7 +242,11 @@ public class Login extends javax.swing.JFrame {
         J_M_txtE1.setForeground(new java.awt.Color(255, 255, 255));
         J_M_txtE1.setText("Arma");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        J_M_Wpnlist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                J_M_WpnlistActionPerformed(evt);
+            }
+        });
 
         J_M_txtN2.setBackground(new java.awt.Color(255, 255, 255));
         J_M_txtN2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -260,6 +279,26 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        J_M_CreatC.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        J_M_CreatC.setForeground(new java.awt.Color(255, 0, 0));
+        J_M_CreatC.setText("CREAR PERSONAJE");
+        J_M_CreatC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        J_M_CreatC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                J_M_CreatCActionPerformed(evt);
+            }
+        });
+
+        J_M_CreatC1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        J_M_CreatC1.setForeground(new java.awt.Color(255, 0, 0));
+        J_M_CreatC1.setText("CREAR ARMA");
+        J_M_CreatC1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        J_M_CreatC1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                J_M_CreatC1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout J_MakeLayout = new javax.swing.GroupLayout(J_Make);
         J_Make.setLayout(J_MakeLayout);
         J_MakeLayout.setHorizontalGroup(
@@ -267,16 +306,7 @@ public class Login extends javax.swing.JFrame {
             .addGroup(J_MakeLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(J_M_Dmg, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(J_M_txtD)
-                    .addGroup(J_MakeLayout.createSequentialGroup()
-                        .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(J_M_Name2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(J_M_txtN2))
-                        .addGap(51, 51, 51)
-                        .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(J_M_txtP)
-                            .addComponent(J_M_Preci, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(J_MakeLayout.createSequentialGroup()
                         .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(J_M_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -289,12 +319,25 @@ public class Login extends javax.swing.JFrame {
                             .addGroup(J_MakeLayout.createSequentialGroup()
                                 .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(J_M_txtV)
-                                    .addComponent(J_M_Vida, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(77, 77, 77)
-                                .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(J_M_Vida, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(J_M_Wpnlist, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(53, 53, 53)
+                                .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(J_M_txtT)
-                                    .addComponent(J_M_Typlist, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(J_M_Typlist, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(J_M_CreatC, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)))))
+                    .addGroup(J_MakeLayout.createSequentialGroup()
+                        .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(J_M_Name2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(J_M_txtN2))
+                        .addGap(51, 51, 51)
+                        .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(J_M_txtP)
+                            .addComponent(J_M_Preci, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(J_MakeLayout.createSequentialGroup()
+                        .addComponent(J_M_Dmg, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51)
+                        .addComponent(J_M_CreatC1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(82, Short.MAX_VALUE))
         );
         J_MakeLayout.setVerticalGroup(
@@ -321,7 +364,8 @@ public class Login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(J_M_Shield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(J_M_Wpnlist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(J_M_CreatC))
                 .addGap(91, 91, 91)
                 .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(J_MakeLayout.createSequentialGroup()
@@ -335,8 +379,10 @@ public class Login extends javax.swing.JFrame {
                 .addGap(67, 67, 67)
                 .addComponent(J_M_txtD)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(J_M_Dmg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(J_M_Dmg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(J_M_CreatC1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         J_Opciones.addTab("Crear Personaje | Crear Arma", J_Make);
@@ -530,6 +576,18 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_J_S_SelecActionPerformed
 
+    private void J_M_WpnlistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_J_M_WpnlistActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_J_M_WpnlistActionPerformed
+
+    private void J_M_CreatCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_J_M_CreatCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_J_M_CreatCActionPerformed
+
+    private void J_M_CreatC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_J_M_CreatC1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_J_M_CreatC1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -573,6 +631,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel BG;
     private javax.swing.JPanel BG2;
     private javax.swing.JLabel J_BG;
+    private javax.swing.JButton J_M_CreatC;
+    private javax.swing.JButton J_M_CreatC1;
     private javax.swing.JTextField J_M_Dmg;
     private javax.swing.JTextField J_M_Name;
     private javax.swing.JTextField J_M_Name2;
@@ -580,6 +640,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField J_M_Shield;
     private javax.swing.JComboBox<String> J_M_Typlist;
     private javax.swing.JTextField J_M_Vida;
+    private javax.swing.JComboBox<String> J_M_Wpnlist;
     private javax.swing.JLabel J_M_txtD;
     private javax.swing.JLabel J_M_txtE;
     private javax.swing.JLabel J_M_txtE1;
@@ -605,6 +666,5 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel Log_Usrtxt;
     private javax.swing.JLabel Log_logo;
     private javax.swing.JLabel Log_txt;
-    private javax.swing.JComboBox<String> jComboBox1;
     // End of variables declaration//GEN-END:variables
 }

@@ -15,15 +15,17 @@ public class Personajes {
     private int Vida;
     private int Escudo;
     private Armas arm;
+    private String tipo;
 
     public Personajes() {
     }
 
-    public Personajes(String Nombre, int Vida, int Escudo, Armas arm) {
+    public Personajes(String Nombre, int Vida, int Escudo, Armas arm, String tipo) {
         this.Nombre = Nombre;
         this.Vida = Vida;
         this.Escudo = Escudo;
         this.arm = arm;
+        this.tipo = tipo;
     }
 
     public String getNombre() {
@@ -58,10 +60,19 @@ public class Personajes {
         this.arm = arm;
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+  
     @Override
     public String toString() {
-        return "Personajes{" + "Nombre=" + Nombre + ", Vida=" + Vida + ", Escudo=" + Escudo + ", arm=" + arm + '}';
+        return "Personajes{" + "Nombre=" + Nombre + ", Vida=" + Vida + ", Escudo=" + Escudo + ", arm=" + arm + ", tipo=" + tipo + '}';
     }
-    
-    
+
+   
 }
