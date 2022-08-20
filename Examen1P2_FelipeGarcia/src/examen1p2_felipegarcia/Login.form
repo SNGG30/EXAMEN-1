@@ -146,6 +146,7 @@
                         <Property name="label" type="java.lang.String" value="SELECCIONAR"/>
                       </Properties>
                       <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="J_S_SelecMouseClicked"/>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="J_S_SelecActionPerformed"/>
                       </Events>
                     </Component>
@@ -526,6 +527,7 @@
                         </Property>
                       </Properties>
                       <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="J_M_CreatC1MouseClicked"/>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="J_M_CreatC1ActionPerformed"/>
                       </Events>
                     </Component>

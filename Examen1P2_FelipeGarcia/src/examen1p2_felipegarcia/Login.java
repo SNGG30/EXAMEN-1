@@ -24,10 +24,6 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         
-        players.add(new Jugador("Lechuga", 1, "contraseña"));
-        players.add(new Jugador("Loco Bryan", 2, "contraseña"));
-        players.add(new Jugador("Dr. Nuila", 3, "contraseña"));
-        
         weapons.add(new Armas("FlatLine", 10, 80));
         weapons.add(new Armas("Carabina", 15, 90));
         weapons.add(new Armas("PeaceFinder", 30, 40));
@@ -35,6 +31,10 @@ public class Login extends javax.swing.JFrame {
         characters.add(new Personajes("LifeLine", 100, 50, weapons.get(0), "Medico"));
         characters.add(new Personajes("Vantage", 100, 50, weapons.get(2), "Rastreador"));
         characters.add(new Personajes("Gibby", 125, 75, weapons.get(1), "Medico"));
+        
+        players.add(new Jugador("Lechuga", 1, "contraseña", characters.get(0)));
+        players.add(new Jugador("Loco Bryan", 2, "contraseña", characters.get(1)));
+        players.add(new Jugador("Dr. Nuila", 3, "contraseña", characters.get(2)));
         
         letras.add("a");
         letras.add("b");
@@ -155,6 +155,11 @@ public class Login extends javax.swing.JFrame {
         J_S_Selec.setForeground(new java.awt.Color(255, 0, 0));
         J_S_Selec.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         J_S_Selec.setLabel("SELECCIONAR");
+        J_S_Selec.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                J_S_SelecMouseClicked(evt);
+            }
+        });
         J_S_Selec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 J_S_SelecActionPerformed(evt);
@@ -301,6 +306,11 @@ public class Login extends javax.swing.JFrame {
         J_M_CreatC1.setForeground(new java.awt.Color(255, 0, 0));
         J_M_CreatC1.setText("CREAR ARMA");
         J_M_CreatC1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        J_M_CreatC1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                J_M_CreatC1MouseClicked(evt);
+            }
+        });
         J_M_CreatC1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 J_M_CreatC1ActionPerformed(evt);
@@ -621,6 +631,38 @@ public class Login extends javax.swing.JFrame {
             J_M_Shield.setText("");
         }
     }//GEN-LAST:event_J_M_CreatCMouseClicked
+
+    private void J_M_CreatC1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_J_M_CreatC1MouseClicked
+        // TODO add your handling code here:
+        
+        String Nombre = J_M_Name2.getText();;
+        String Damage = J_M_Dmg.getText();;
+        String P = J_M_Preci.getText();;
+        
+        int Daño = Integer.parseInt(Damage);
+        int Precision = Integer.parseInt(P);
+        
+        if(Nombre.equals("") || Damage.equals("") || P.equals("")){
+            
+        }else{
+            Armas a = new Armas(Nombre, Daño, Precision);
+            weapons.add(a);
+            
+            DefaultComboBoxModel modelo = (DefaultComboBoxModel) J_M_Wpnlist.getModel();
+            modelo.addElement(weapons.get(weapons.size()-1));
+            
+            J_M_Name2.setText("");
+            J_M_Dmg.setText("");
+            J_M_Preci.setText("");
+        }
+    }//GEN-LAST:event_J_M_CreatC1MouseClicked
+
+    private void J_S_SelecMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_J_S_SelecMouseClicked
+        // TODO add your handling code here:
+        Personajes p = (Personajes)J_S_Charlist.getSelectedItem();
+        
+        players.get(3).setP(p);
+    }//GEN-LAST:event_J_S_SelecMouseClicked
 
     /**
      * @param args the command line arguments

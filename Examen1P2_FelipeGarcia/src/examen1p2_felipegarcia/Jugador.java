@@ -57,6 +57,15 @@ public class Jugador {
         this.Password = Password;
     }
 
+    public Personajes getP() {
+        return p;
+    }
+
+    public void setP(Personajes p) {
+        this.p = p;
+    }
+
+    
     @Override
     public String toString() {
         return "Jugador{" + "Username=" + Username + ", ID=" + ID + ", Password=" + Password + '}';
