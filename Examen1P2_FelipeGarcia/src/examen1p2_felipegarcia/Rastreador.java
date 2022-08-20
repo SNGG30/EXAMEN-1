@@ -11,4 +11,5 @@ package examen1p2_felipegarcia;
  */
 public class Rastreador extends Personajes{
     
+    
 }

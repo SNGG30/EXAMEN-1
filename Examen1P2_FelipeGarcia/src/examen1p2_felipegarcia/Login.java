@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.util.Random;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -23,6 +24,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) J_S_Charlist.getModel();
         players.add(new Jugador("Lechuga", 1, "contraseña"));
         players.add(new Jugador("Loco Bryan", 2, "contraseña"));
         players.add(new Jugador("Dr. Nuila", 3, "contraseña"));
@@ -70,10 +72,27 @@ public class Login extends javax.swing.JFrame {
         BG2 = new javax.swing.JPanel();
         J_Opciones = new javax.swing.JTabbedPane();
         J_Select = new javax.swing.JPanel();
+        J_S_Charlist = new javax.swing.JComboBox<>();
+        J_S_TxtS = new javax.swing.JLabel();
+        J_S_Selec = new javax.swing.JButton();
         J_Play = new javax.swing.JPanel();
         J_Make = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        J_M_txtN = new javax.swing.JLabel();
+        J_M_Name = new javax.swing.JTextField();
+        J_M_txtV = new javax.swing.JLabel();
+        J_M_Vida = new javax.swing.JTextField();
+        J_M_txtT = new javax.swing.JLabel();
+        J_M_Typlist = new javax.swing.JComboBox<>();
+        J_M_txtE = new javax.swing.JLabel();
+        J_M_Shield = new javax.swing.JTextField();
+        J_M_txtE1 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        J_M_txtN2 = new javax.swing.JLabel();
+        J_M_Name2 = new javax.swing.JTextField();
+        J_M_txtP = new javax.swing.JLabel();
+        J_M_Preci = new javax.swing.JTextField();
+        J_M_txtD = new javax.swing.JLabel();
+        J_M_Dmg = new javax.swing.JTextField();
         J_BG = new javax.swing.JLabel();
         BG = new javax.swing.JPanel();
         Log_txt = new javax.swing.JLabel();
@@ -101,15 +120,54 @@ public class Login extends javax.swing.JFrame {
         J_Select.setForeground(new java.awt.Color(255, 255, 255));
         J_Select.setToolTipText("");
 
+        J_S_Charlist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        J_S_Charlist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                J_S_CharlistActionPerformed(evt);
+            }
+        });
+
+        J_S_TxtS.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        J_S_TxtS.setForeground(new java.awt.Color(255, 255, 255));
+        J_S_TxtS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        J_S_TxtS.setText("SELECCIONE UN PERSONJE");
+
+        J_S_Selec.setBackground(new java.awt.Color(153, 153, 153));
+        J_S_Selec.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        J_S_Selec.setForeground(new java.awt.Color(255, 0, 0));
+        J_S_Selec.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        J_S_Selec.setLabel("SELECCIONAR");
+        J_S_Selec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                J_S_SelecActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout J_SelectLayout = new javax.swing.GroupLayout(J_Select);
         J_Select.setLayout(J_SelectLayout);
         J_SelectLayout.setHorizontalGroup(
             J_SelectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addComponent(J_S_TxtS, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addGroup(J_SelectLayout.createSequentialGroup()
+                .addGroup(J_SelectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(J_SelectLayout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(J_S_Charlist, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(J_SelectLayout.createSequentialGroup()
+                        .addGap(232, 232, 232)
+                        .addComponent(J_S_Selec, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         J_SelectLayout.setVerticalGroup(
             J_SelectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 567, Short.MAX_VALUE)
+            .addGroup(J_SelectLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(J_S_TxtS, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(156, 156, 156)
+                .addComponent(J_S_Charlist, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                .addComponent(J_S_Selec, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
         );
 
         J_Opciones.addTab("Seleccionar", J_Select);
@@ -131,36 +189,154 @@ public class Login extends javax.swing.JFrame {
 
         J_Make.setBackground(new java.awt.Color(51, 51, 51));
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Nombre");
+        J_M_txtN.setBackground(new java.awt.Color(255, 255, 255));
+        J_M_txtN.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        J_M_txtN.setForeground(new java.awt.Color(255, 255, 255));
+        J_M_txtN.setText("Nombre");
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField1.setText("jTextField1");
+        J_M_Name.setBackground(new java.awt.Color(204, 204, 204));
+
+        J_M_txtV.setBackground(new java.awt.Color(255, 255, 255));
+        J_M_txtV.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        J_M_txtV.setForeground(new java.awt.Color(255, 255, 255));
+        J_M_txtV.setText("Vida");
+
+        J_M_Vida.setBackground(new java.awt.Color(204, 204, 204));
+
+        J_M_txtT.setBackground(new java.awt.Color(255, 255, 255));
+        J_M_txtT.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        J_M_txtT.setForeground(new java.awt.Color(255, 255, 255));
+        J_M_txtT.setText("Tipo");
+
+        J_M_Typlist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        J_M_Typlist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                J_M_TyplistActionPerformed(evt);
+            }
+        });
+
+        J_M_txtE.setBackground(new java.awt.Color(255, 255, 255));
+        J_M_txtE.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        J_M_txtE.setForeground(new java.awt.Color(255, 255, 255));
+        J_M_txtE.setText("Escudo");
+
+        J_M_Shield.setBackground(new java.awt.Color(204, 204, 204));
+
+        J_M_txtE1.setBackground(new java.awt.Color(255, 255, 255));
+        J_M_txtE1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        J_M_txtE1.setForeground(new java.awt.Color(255, 255, 255));
+        J_M_txtE1.setText("Arma");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        J_M_txtN2.setBackground(new java.awt.Color(255, 255, 255));
+        J_M_txtN2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        J_M_txtN2.setForeground(new java.awt.Color(255, 255, 255));
+        J_M_txtN2.setText("Nombre");
+
+        J_M_Name2.setBackground(new java.awt.Color(204, 204, 204));
+        J_M_Name2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                J_M_Name2ActionPerformed(evt);
+            }
+        });
+
+        J_M_txtP.setBackground(new java.awt.Color(255, 255, 255));
+        J_M_txtP.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        J_M_txtP.setForeground(new java.awt.Color(255, 255, 255));
+        J_M_txtP.setText("Precision");
+
+        J_M_Preci.setBackground(new java.awt.Color(204, 204, 204));
+
+        J_M_txtD.setBackground(new java.awt.Color(255, 255, 255));
+        J_M_txtD.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        J_M_txtD.setForeground(new java.awt.Color(255, 255, 255));
+        J_M_txtD.setText("Daño");
+
+        J_M_Dmg.setBackground(new java.awt.Color(204, 204, 204));
+        J_M_Dmg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                J_M_DmgActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout J_MakeLayout = new javax.swing.GroupLayout(J_Make);
         J_Make.setLayout(J_MakeLayout);
         J_MakeLayout.setHorizontalGroup(
             J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(J_MakeLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(J_M_Dmg, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(J_M_txtD)
                     .addGroup(J_MakeLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel1))
+                        .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(J_M_Name2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(J_M_txtN2))
+                        .addGap(51, 51, 51)
+                        .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(J_M_txtP)
+                            .addComponent(J_M_Preci, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(J_MakeLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(466, Short.MAX_VALUE))
+                        .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(J_M_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(J_M_txtN)
+                            .addComponent(J_M_txtE)
+                            .addComponent(J_M_Shield, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(51, 51, 51)
+                        .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(J_M_txtE1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(J_MakeLayout.createSequentialGroup()
+                                .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(J_M_txtV)
+                                    .addComponent(J_M_Vida, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(77, 77, 77)
+                                .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(J_M_txtT)
+                                    .addComponent(J_M_Typlist, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
         J_MakeLayout.setVerticalGroup(
             J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(J_MakeLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(473, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(J_MakeLayout.createSequentialGroup()
+                        .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(J_M_txtV)
+                            .addComponent(J_M_txtT))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(J_M_Vida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(J_M_Typlist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(J_MakeLayout.createSequentialGroup()
+                        .addComponent(J_M_txtN)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(J_M_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(49, 49, 49)
+                .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(J_M_txtE)
+                    .addComponent(J_M_txtE1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(J_M_Shield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(91, 91, 91)
+                .addGroup(J_MakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(J_MakeLayout.createSequentialGroup()
+                        .addComponent(J_M_txtP)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(J_M_Preci, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(J_MakeLayout.createSequentialGroup()
+                        .addComponent(J_M_txtN2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(J_M_Name2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(67, 67, 67)
+                .addComponent(J_M_txtD)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(J_M_Dmg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         J_Opciones.addTab("Crear Personaje | Crear Arma", J_Make);
@@ -334,6 +510,26 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Log_CreMouseClicked
 
+    private void J_S_CharlistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_J_S_CharlistActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_J_S_CharlistActionPerformed
+
+    private void J_M_TyplistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_J_M_TyplistActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_J_M_TyplistActionPerformed
+
+    private void J_M_Name2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_J_M_Name2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_J_M_Name2ActionPerformed
+
+    private void J_M_DmgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_J_M_DmgActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_J_M_DmgActionPerformed
+
+    private void J_S_SelecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_J_S_SelecActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_J_S_SelecActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -377,9 +573,27 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel BG;
     private javax.swing.JPanel BG2;
     private javax.swing.JLabel J_BG;
+    private javax.swing.JTextField J_M_Dmg;
+    private javax.swing.JTextField J_M_Name;
+    private javax.swing.JTextField J_M_Name2;
+    private javax.swing.JTextField J_M_Preci;
+    private javax.swing.JTextField J_M_Shield;
+    private javax.swing.JComboBox<String> J_M_Typlist;
+    private javax.swing.JTextField J_M_Vida;
+    private javax.swing.JLabel J_M_txtD;
+    private javax.swing.JLabel J_M_txtE;
+    private javax.swing.JLabel J_M_txtE1;
+    private javax.swing.JLabel J_M_txtN;
+    private javax.swing.JLabel J_M_txtN2;
+    private javax.swing.JLabel J_M_txtP;
+    private javax.swing.JLabel J_M_txtT;
+    private javax.swing.JLabel J_M_txtV;
     private javax.swing.JPanel J_Make;
     private javax.swing.JTabbedPane J_Opciones;
     private javax.swing.JPanel J_Play;
+    private javax.swing.JComboBox<String> J_S_Charlist;
+    private javax.swing.JButton J_S_Selec;
+    private javax.swing.JLabel J_S_TxtS;
     private javax.swing.JPanel J_Select;
     private javax.swing.JFrame Juego;
     private javax.swing.JLabel Log_BG;
@@ -391,7 +605,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel Log_Usrtxt;
     private javax.swing.JLabel Log_logo;
     private javax.swing.JLabel Log_txt;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JComboBox<String> jComboBox1;
     // End of variables declaration//GEN-END:variables
 }
